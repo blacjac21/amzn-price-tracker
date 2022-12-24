@@ -4,7 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 # Replace with the URL of the product you want to track
-product_url = "https://www.amazon.com/product/123456"
+product_url = "https://amzn.eu/d/6SpTgyL"
 
 # Set up Chrome webdriver
 driver = webdriver.Chrome()
@@ -23,4 +23,4 @@ price = price_element.text
 print(f"The current price is ${price}")
 
 # Close the webdriver
-driver.quit()
+#driver.quit()
