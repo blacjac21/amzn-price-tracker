@@ -3,24 +3,33 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# Replace with the URL of the product you want to track
-product_url = "https://amzn.eu/d/6SpTgyL"
+DIRECTORY = 'reports'
+NAME = 'PS4'
+CURRENCY = '€'
+MIN_PRICE = '275'
+MAX_PRICE = '650'
+FILTERS = {
+    'min': MIN_PRICE,
+    'max': MAX_PRICE
+}
+BASE_URL = "http://www.amazon.in/"
 
-# Set up Chrome webdriver
-driver = webdriver.Chrome()
 
-# Go to the product page
-driver.get(product_url)
+def get_chrome_web_driver(options):
+    return webdriver.Chrome("./chromedriver", chrome_options=options)
 
-# Wait for the price element to load
-wait = WebDriverWait(driver, 10)
-price_element = wait.until(EC.presence_of_element_located((By.ID, "priceblock_ourprice")))
 
-# Get the product price
-price = price_element.text
+def get_web_driver_options():
+    return webdriver.ChromeOptions()
 
-# Print the price
-print(f"The current price is ${price}")
 
-# Close the webdriver
-#driver.quit()
+def set_ignore_certificate_error(options):
+    options.add_argument('--ignore-certificate-errors')
+
+
+def set_browser_as_incognito(options):
+    options.add_argument('--incognito')
+
+
+def set_automation_as_head_less(options):
+    options.add_argument('--headless')
