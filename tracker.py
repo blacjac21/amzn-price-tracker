@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 DIRECTORY = 'reports'
 NAME = 'PS4'
-CURRENCY = '€'
+CURRENCY = '₹'
 MIN_PRICE = '275'
 MAX_PRICE = '650'
 FILTERS = {
